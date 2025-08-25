@@ -641,7 +641,7 @@ void UIRenderer::drawDeviceFocused(OLEDDisplay *display, OLEDDisplayUiState *sta
     int textWidth = 0;
     int nameX = 0;
     int yOffset = (isHighResolution) ? 0 : 5;
-    const char *longName = nullptr;
+
     std::string longNameStr;
 
     meshtastic_NodeInfoLite *ourNode = nodeDB->getMeshNode(nodeDB->getNodeNum());
@@ -1127,8 +1127,6 @@ void UIRenderer::drawNavigationBar(OLEDDisplay *display, OLEDDisplayUiState *sta
     const int xStart = (SCREEN_WIDTH - totalWidth) / 2;
 
     // Only show bar briefly after switching frames
-    static uint32_t navBarLastShown = 0;
-    static bool cosmeticRefreshDone = false;
 
     bool navBarVisible = millis() - lastFrameChangeTime <= ICON_DISPLAY_DURATION_MS;
     int y = navBarVisible ? (SCREEN_HEIGHT - iconSize - 1) : SCREEN_HEIGHT;
